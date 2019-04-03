@@ -17,12 +17,12 @@ public class UserOfOrderedList {
 
         addOne( "add an element that belongs at the front"
                , -11
-               ,"[-11,-10,]"
+               ,"[-11,0,]"
                );
 
         addOne( "add an element that belongs at the back"
                , 5
-               ,"[-11,-10,5,]"
+               ,"[-11,0,5,]"
                );
 
         addOne( "add an element that belongs somewhere in the middle"
@@ -35,10 +35,20 @@ public class UserOfOrderedList {
                ,"[-11,0,0,2,5,]"
                );
 
-        // addOne( ""
-               // , 
-               // ,""
-               // );
+        removeOne( "remove an element at the front"
+				  , 0
+                  ,"[0,0,2,5,]"
+                  );
+			   
+		removeOne( "remove an element in the middle"
+                  , 2 
+                  ,"[0,0,5,]"
+                  );
+		
+		removeOne( "remove an element at the back"
+                  , 2
+                  ,"[0,0,]"
+                  );
     }
 
     
@@ -58,7 +68,37 @@ public class UserOfOrderedList {
           + orderedList
           + " ...expecting "
           + expect
-          + System.lineSeparator());
+          + System.lineSeparator()
+		  + "size: "
+		  + orderedList.size()
+		  + System.lineSeparator()
+		  + "value at index 2: "
+		  + orderedList.get(2)
+		  + System.lineSeparator()
+		  );
+     }
+	 
+	 private static void removeOne( String description
+                              , int index
+                              , String expect
+                              ) {
+        System.out.println( description);
+        orderedList.remove( index);
+
+        // check 
+        System.out.println( 
+            "result:   "
+          + orderedList
+          + " ...expecting "
+          + expect
+          + System.lineSeparator()
+		  + "size: "
+		  + orderedList.size()
+		  + System.lineSeparator()
+		  + "value at index 2: "
+		  + orderedList.get(2)
+		  + System.lineSeparator()
+		  );
      }
 
 }    
